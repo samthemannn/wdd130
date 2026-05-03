@@ -1,0 +1,30 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#C1CC99" stroke="#6CAE75" stroke-width="2"/>
+  
+  <!-- Water waves at bottom -->
+  <path d="M 30 130 Q 50 120, 70 130 T 110 130 T 150 130 T 190 130 L 190 180 Q 190 190, 180 190 L 20 190 Q 10 190, 10 180 L 10 130" 
+        fill="#6CAE75" opacity="0.7"/>
+  
+  <!-- Raft -->
+  <ellipse cx="100" cy="110" rx="45" ry="25" fill="#F5A65B" stroke="#8B9474" stroke-width="2"/>
+  
+  <!-- Raft details (wooden logs) -->
+  <line x1="65" y1="100" x2="65" y2="120" stroke="#8B9474" stroke-width="2"/>
+  <line x1="85" y1="98" x2="85" y2="122" stroke="#8B9474" stroke-width="2"/>
+  <line x1="105" y1="98" x2="105" y2="122" stroke="#8B9474" stroke-width="2"/>
+  <line x1="125" y1="100" x2="125" y2="120" stroke="#8B9474" stroke-width="2"/>
+  
+  <!-- Oars -->
+  <line x1="60" y1="90" x2="40" y2="60" stroke="#8B9474" stroke-width="3"/>
+  <circle cx="38" cy="58" r="6" fill="#8B9474"/>
+  
+  <line x1="140" y1="90" x2="160" y2="60" stroke="#8B9474" stroke-width="3"/>
+  <circle cx="162" cy="58" r="6" fill="#8B9474"/>
+  
+  <!-- Company text -->
+  <text x="100" y="160" font-family="Arial, sans-serif" font-size="16" font-weight="bold" 
+        text-anchor="middle" fill="#8B9474">WHITE WATER</text>
+  <text x="100" y="175" font-family="Arial, sans-serif" font-size="14" font-weight="bold" 
+        text-anchor="middle" fill="#8B9474">RAFTING</text>
+</svg>
