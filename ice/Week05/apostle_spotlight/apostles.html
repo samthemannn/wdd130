@@ -1,0 +1,290 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostles Spotlights</title>
+    <style>
+        :root {
+            --page-bg: #E8ECED;
+            --card-bg: rgba(7, 21, 52, 0.95);
+            --section-bg: rgba(255, 255, 255, 0.08);
+            --text: #F3F7FB;
+            --accent: #8AD7FF;
+            --hover: #F5B663;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: radial-gradient(circle at top left, rgba(138, 215, 255, 0.16), transparent 30%),
+                        radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.15), transparent 20%),
+                        linear-gradient(180deg, #E8ECED 0%, #D8DEE1 100%);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .spotlight-card {
+            width: min(1200px, 100%);
+            padding: 35px;
+            border-radius: 36px;
+            background: var(--card-bg);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spotlight-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(138, 215, 255, 0.24), transparent 18%),
+                        radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.14), transparent 20%);
+            pointer-events: none;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-panel {
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .hero-panel img {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 28px;
+            border: 6px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+            object-fit: cover;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        h1,
+        h2 {
+            margin: 0;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 2.4vw, 3rem);
+        }
+
+        h2 {
+            font-size: clamp(1.3rem, 1.6vw, 1.9rem);
+            color: #dbe8ff;
+        }
+
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 28px;
+            justify-items: center;
+        }
+
+        .person {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 24px;
+            background: var(--section-bg);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            border: 4px solid transparent;
+        }
+
+        .person:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 40px rgba(0, 0, 0, 0.3);
+            border-color: var(--hover);
+        }
+
+        .person img {
+            width: 132px;
+            height: 132px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 7px solid #ffffff;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+            transition: border-color 0.25s ease, transform 0.25s ease;
+        }
+
+        .person:hover img {
+            border-color: var(--accent);
+            transform: scale(1.04);
+        }
+
+        .person strong {
+            display: block;
+            font-size: 0.95rem;
+            color: #f4f8ff;
+        }
+
+        .person span {
+            display: block;
+            font-size: 0.84rem;
+            color: #bed6ff;
+        }
+
+        @media (max-width: 960px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-panel {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .spotlight-card {
+                padding: 24px;
+            }
+
+            .people-grid {
+                gap: 20px;
+            }
+
+            .person img {
+                width: 112px;
+                height: 112px;
+            }
+
+            .people-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 520px) {
+            .people-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="spotlight-card">
+        <div class="layout">
+            <div class="hero-panel">
+                <img src="images/christus.webp" alt="Christus statue" loading="lazy">
+            </div>
+            <div class="content">
+                <div>
+                    <h1>First Presidency</h1>
+                    <div class="people-grid">
+                        <article class="person">
+                            <img src="images/oaks.webp" alt="President Oaks" loading="lazy">
+                            <strong>President Oaks</strong>
+                            <span>First Presidency</span>
+                        </article>
+                        <article class="person">
+                            <img src="images/eyring.webp" alt="Elder Eyring" loading="lazy">
+                            <strong>Elder Eyring</strong>
+                            <span>First Presidency</span>
+                        </article>
+                        <article class="person">
+                            <img src="images/uchtdorf.webp" alt="Elder Uchtdorf" loading="lazy">
+                            <strong>Elder Uchtdorf</strong>
+                            <span>First Presidency</span>
+                        </article>
+                    </div>
+                </div>
+
+                <div>
+                    <h2>Quorum of the Twelve Apostles</h2>
+                    <div class="people-grid">
+                        <article class="person">
+                            <img src="images/anderson.webp" alt="Elder Anderson" loading="lazy">
+                            <strong>Elder Anderson</strong>
+                            <span>Quorum Member</span>
+                        </article>
+                        <article class="person">
+                            <img src="images/bednar.webp" alt="Elder Bednar" loading="lazy">
+                            <strong>Elder Bednar</strong>
+                            <span>Quorum Member</span>
+                        </article>
+                        <article class="person">
+                            <img src="images/causse.webp" alt="Elder Causse" loading="lazy">
+                            <strong>Elder Causse</strong>
+                            <span>Quorum Member</span>
+                        </article>
+                        <article class="person">
+                            <img src="images/christofferson.webp" alt="Elder Christofferson" loading="lazy">
+                            <strong>Elder Christofferson</strong>
+                            <span>Quorum Member</span>
+                        </article>
+                        <article class="person">
+                            <img src="images/cook.webp" alt="Elder Cook" loading="lazy">
+                            <strong>Elder Cook</strong>
+                            <span>Quorum Member</span>
+                        </article>
+                        <article class="person">
+                            <img src="images/gilbert.webp" alt="Elder Gilbert" loading="lazy">
+                            <strong>Elder Gilbert</strong>
+                            <span>Quorum Member</span>
+                        </article>
+                        <article class="person">
+                            <img src="images/gong.webp" alt="Elder Gong" loading="lazy">
+                            <strong>Elder Gong</strong>
+                            <span>Quorum Member</span>
+                        </article>
+                        <article class="person">
+                            <img src="images/kearon.webp" alt="Elder Kearon" loading="lazy">
+                            <strong>Elder Kearon</strong>
+                            <span>Quorum Member</span>
+                        </article>
+                        <article class="person">
+                            <img src="images/rasband.webp" alt="Elder Rasband" loading="lazy">
+                            <strong>Elder Rasband</strong>
+                            <span>Quorum Member</span>
+                        </article>
+                        <article class="person">
+                            <img src="images/renlund.webp" alt="Elder Renlund" loading="lazy">
+                            <strong>Elder Renlund</strong>
+                            <span>Quorum Member</span>
+                        </article>
+                        <article class="person">
+                            <img src="images/soares.webp" alt="Elder Soares" loading="lazy">
+                            <strong>Elder Soares</strong>
+                            <span>Quorum Member</span>
+                        </article>
+                        <article class="person">
+                            <img src="images/stevenson.webp" alt="Elder Stevenson" loading="lazy">
+                            <strong>Elder Stevenson</strong>
+                            <span>Quorum Member</span>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
