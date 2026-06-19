@@ -1,0 +1,323 @@
+/* ==========================================
+   RESET & SKYLINE BACKGROUND OVERLAY
+   ========================================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow-x: hidden;
+    font-family: sans-serif;
+    
+    /* LAYERED BACKGROUNDS:
+       1. The Brooklyn Bridge (Foreground Silhouette via SVG Data URI)
+       2. Lower Manhattan Skyline (Midground Silhouettes)
+       3. Deep Sky Gradient
+    */
+    background-image: 
+        /* 1. Brooklyn Bridge Front Overlay */
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 300' preserveAspectRatio='none'><path d='M0,220 L1200,260 L1200,300 L0,300 Z' fill='%23050811'/><rect x='800' y='120' width='40' height='140' fill='%23080d1a'/><path d='M800,120 L820,80 L840,120 Z' fill='%23080d1a'/><circle cx='820' cy='150' r='12' fill='%230d1527'/><circle cx='820' cy='190' r='12' fill='%230d1527'/><path d='M0,160 Q400,240 800,140 Q1000,200 1200,260' stroke='%23111a30' stroke-width='3' fill='none'/><path d='M0,190 Q400,255 800,145' stroke='%23111a30' stroke-width='1.5' fill='none'/></svg>"),
+        
+        /* 2. Lower Manhattan Midground Skyscrapers (Including One World Trade Center) */
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400' preserveAspectRatio='none'><rect x='50' y='200' width='70' height='200' fill='%23121b2d'/><rect x='160' y='140' width='55' height='260' fill='%230f1726'/><polygon points='160,140 187,90 215,140' fill='%230f1726'/><rect x='280' y='180' width='80' height='220' fill='%23141e33'/><rect x='420' y='230' width='60' height='170' fill='%23101828'/><rect x='520' y='250' width='50' height='150' fill='%230d1421'/><rect x='670' y='160' width='45' height='240' fill='%23141d30'/><rect x='960' y='80' width='60' height='320' fill='%230b111c'/><polygon points='960,80 990,20 1020,80' fill='%230b111c'/><line x1='990' y1='20' x2='990' y2='0' stroke='%23ffffff' stroke-width='2'/><rect x='1050' y='130' width='50' height='270' fill='%23111929'/></svg>"),
+        
+        /* 3. Deep Atmospheric Sky Night Gradient */
+        linear-gradient(to bottom, #070b12 0%, #111424 50%, #201a3a 100%);
+        
+    background-size: 100% 250px, 100% 350px, 100% 100%;
+    background-position: bottom center, bottom center, center center;
+    background-repeat: no-repeat;
+}
+
+/* Master building canvas alignment */
+#wrapper {
+    width: 450px;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 5; /* Rides completely over the sky background imagery */
+}
+
+/* Hide all raw text content cleanly since we cannot edit HTML */
+nav ul, h1, h2, p, footer {
+    color: transparent !important;
+    text-shadow: none !important;
+    user-select: none;
+}
+
+/* ==========================================
+   ANIMATION: GLOBAL AMBIENT WINDOW PULSE
+   ========================================== */
+@keyframes ambientGlow {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.25) drop-shadow(0 0 3px rgba(255, 215, 0, 0.45));
+    }
+}
+
+/* ==========================================
+   TIER 1: THE SPIRE & MOORING MAST (header & nav)
+   ========================================== */
+header {
+    width: 40px;
+    height: 140px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+}
+
+/* The Needle / Lightning Rod */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 3px;
+    height: 50px;
+    background: #cbd5e1;
+    box-shadow: 0 0 12px #fff;
+}
+
+/* The Tapered Spire Tower */
+header::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    width: 14px;
+    height: 40px;
+    background: linear-gradient(to right, #94a3b8, #cbd5e1, #64748b);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+/* The Mooring Mast (Airship Docking Station) */
+nav {
+    position: absolute;
+    top: 90px;
+    width: 34px;
+    height: 50px;
+    background: linear-gradient(to right, #475569, #94a3b8, #334155);
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Mooring Mast Windows */
+nav::before {
+    content: '';
+    position: absolute;
+    top: 8px; left: 6px; right: 6px; bottom: 0;
+    background: repeating-linear-gradient(to right, #ffd700 0 2px, transparent 2px 6px);
+}
+
+/* Interactive Mast Light Up */
+nav:hover {
+    box-shadow: 0 0 25px rgba(255, 235, 120, 0.8);
+    filter: brightness(1.4);
+}
+
+/* ==========================================
+   TIER 2: UPPER OBSERVATORY (main, h1, & img)
+   ========================================== */
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+/* Upper Setback Deck 1 */
+h1 {
+    margin: 0;
+    width: 54px;
+    height: 18px;
+    background: linear-gradient(to right, #64748b, #cbd5e1, #475569);
+    border-radius: 2px 2px 0 0;
+}
+
+/* Upper Setback Deck 2 */
+main img {
+    content: none; 
+    width: 80px;
+    height: 30px;
+    background: linear-gradient(to right, #475569, #94a3b8, #334155);
+    border-bottom: 3px solid #1e293b;
+    transform: none; 
+    padding: 0;
+    border: none;
+    box-shadow: none;
+}
+
+/* ==========================================
+   TIER 3: THE MAIN SHAFT WITH INTERACTIVE WINDOWS
+   ========================================== */
+section {
+    position: relative;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow: hidden; 
+}
+
+/* --- SECTION 1: UPPER MAIN TOWER --- */
+section:nth-of-type(1) {
+    width: 120px;
+    height: 160px;
+    background: #64748b;
+    border-left: 8px solid #475569;
+    border-right: 8px solid #334155;
+}
+
+/* Base Window Layer: Dimly lit windows pulsing gently */
+section:nth-of-type(1)::before {
+    content: '';
+    position: absolute;
+    top: 10px; bottom: 10px; left: 8px; right: 8px;
+    background: 
+        repeating-linear-gradient(to right, transparent, transparent 5px, #0d1527 5px, #0d1527 9px),
+        repeating-linear-gradient(to bottom, #d4af37 0px, #d4af37 4px, #475569 4px, #475569 14px);
+    opacity: 0.65;
+    animation: ambientGlow 4s infinite ease-in-out;
+}
+
+/* Interactive Spotlight Layer: Triggers full overlay exposure on hover */
+section:nth-of-type(1)::after {
+    content: '';
+    position: absolute;
+    top: 10px; bottom: 10px; left: 8px; right: 8px;
+    background: 
+        repeating-linear-gradient(to right, transparent, transparent 5px, #0d1527 5px, #0d1527 9px),
+        repeating-linear-gradient(to bottom, #fff7a3 0px, #fff7a3 4px, transparent 4px, transparent 14px);
+    opacity: 0;
+    mix-blend-mode: overlay;
+    transition: opacity 0.2s ease;
+}
+
+section:nth-of-type(1):hover::before { opacity: 1; }
+section:nth-of-type(1):hover::after { opacity: 1; }
+
+/* Central architectural 3D rib running down the front of Tier 1 */
+section:nth-of-type(1)::after {
+    content: ''; position: absolute; top: 0; bottom: 0; left: 32px; right: 32px;
+    background: #cbd5e1; border-left: 3px solid #94a3b8; border-right: 3px solid #475569;
+    box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+/* --- SECTION 2: MIDDLE MAIN TOWER --- */
+section:nth-of-type(2) {
+    width: 170px;
+    height: 110px;
+    background: #475569;
+    border-left: 14px solid #334155;
+    border-right: 14px solid #1e293b;
+}
+section:nth-of-type(2)::before {
+    content: '';
+    position: absolute;
+    top: 8px; bottom: 8px; left: 10px; right: 10px;
+    background: 
+        repeating-linear-gradient(to right, transparent, transparent 5px, #0d1527 5px, #0d1527 9px),
+        repeating-linear-gradient(to bottom, #d4af37 0px, #d4af37 4px, #334155 4px, #334155 14px);
+    opacity: 0.65;
+    animation: ambientGlow 4.5s infinite ease-in-out;
+}
+section:nth-of-type(2)::after {
+    content: '';
+    position: absolute;
+    top: 8px; bottom: 8px; left: 10px; right: 10px;
+    background: 
+        repeating-linear-gradient(to right, transparent, transparent 5px, #0d1527 5px, #0d1527 9px),
+        repeating-linear-gradient(to bottom, #fff7a3 0px, #fff7a3 4px, transparent 4px, transparent 14px);
+    opacity: 0;
+    mix-blend-mode: overlay;
+    transition: opacity 0.2s ease;
+}
+section:nth-of-type(2):hover::before { opacity: 1; }
+section:nth-of-type(2):hover::after { opacity: 1; }
+
+
+/* --- SECTION 3: LOWER MASSIVE SHAFT --- */
+section:nth-of-type(3) {
+    width: 240px;
+    height: 120px;
+    background: #334155;
+    border-left: 22px solid #1e293b;
+    border-right: 22px solid #0f172a;
+}
+section:nth-of-type(3)::before {
+    content: '';
+    position: absolute;
+    top: 8px; bottom: 8px; left: 12px; right: 12px;
+    background: 
+        repeating-linear-gradient(to right, transparent, transparent 5px, #0d1527 5px, #0d1527 9px),
+        repeating-linear-gradient(to bottom, #d4af37 0px, #d4af37 4px, #1e293b 4px, #1e293b 14px);
+    opacity: 0.65;
+    animation: ambientGlow 5s infinite ease-in-out;
+}
+section:nth-of-type(3):after {
+    content: '';
+    position: absolute;
+    top: 8px; bottom: 8px; left: 12px; right: 12px;
+    background: 
+        repeating-linear-gradient(to right, transparent, transparent 5px, #0d1527 5px, #0d1527 9px),
+        repeating-linear-gradient(to bottom, #fff7a3 0px, #fff7a3 4px, transparent 4px, transparent 14px);
+    opacity: 0;
+    mix-blend-mode: overlay;
+    transition: opacity 0.2s ease;
+}
+section:nth-of-type(3):hover::before { opacity: 1; }
+section:nth-of-type(3):hover::after { opacity: 1; }
+
+
+/* ==========================================
+   TIER 4: THE BASE CONCOURSE (footer)
+   ========================================== */
+footer {
+    width: 340px;
+    height: 90px;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: linear-gradient(to right, #1e293b 15%, #334155 35%, #334155 65%, #0f172a 85%);
+    border-top: 6px solid #475569;
+    position: relative;
+    z-index: 4;
+}
+
+/* Fifth Avenue Entrance Canopy Box */
+footer::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65px;
+    height: 40px;
+    background: #0f172a;
+    border: 2px solid #ffd700;
+    border-bottom: none;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+footer:hover::before {
+    background: #1e293b;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
+    border-color: #fff;
+}
