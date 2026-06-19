@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" role="img" aria-labelledby="title desc">
+    <title id="title">Supersam Portal Logo</title>
+    <desc id="desc">A monogram logo with the letters S and V inside a compass shape.</desc>
+    <rect width="180" height="180" rx="28" fill="#13315c"/>
+    <path d="M90 20 112 68 160 90 112 112 90 160 68 112 20 90 68 68Z" fill="#f4d35e"/>
+    <circle cx="90" cy="90" r="50" fill="#f7f9fb"/>
+    <text x="90" y="85" text-anchor="middle" font-family="Georgia, serif" font-size="46" font-weight="700" fill="#13315c">S</text>
+    <text x="90" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#0b6e4f">V</text>
+</svg>

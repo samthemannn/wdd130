@@ -3,9 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My first webpage</title>
+    <title>Sam Velasquez | WDD 130 Portal</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    Hello World! 
+    <header>
+        <a class="brand" href="index.html">
+            <img src="images/portal-logo.svg" alt="Supersam portal logo">
+            <span>Supersam Portal</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="wwr/index.html">WWR</a></li>
+                <li><a href="ice.html">ICE</a></li>
+                <li><a href="about.html">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div>
+                <p class="eyebrow">WDD 130 Web Fundamentals</p>
+                <h1>Welcome to my page</h1>
+                <p>
+                    I am a comp sci student at BYUI. I am hoping to persue a career in law and tech.
+                    I love rock climbing mountineering being outside and networking with new people 
+                    This is my page hope you enjoy! I also dislike css so much so I made this site as horrible as possible 
+                    just to spite it.
+                </p>
+                <div class="hero-links">
+                    <a class="button" href="wwr/index.html">View WWR</a>
+                    <a class="button secondary" href="ice.html">View ICE Challenges</a>
+                </div>
+            </div>
+            <img class="profile-img" src="images/headshot.jpg" alt="Sam Velasquez portrait">
+        </section>
+
+        <section class="overview-grid">
+            <article>
+                <h2>Course Work</h2>
+                <p>These are diffrent things I worked on.</p>
+                <ul>
+                    <li><a href="wwr/index.html">White Water Rafting site</a></li>
+                    <li><a href="ice.html">ICE challenge collection</a></li>
+                    <li><a href="about.html">About Me page</a></li>
+                    <li><a href="design.md">Portal design document</a></li>
+                </ul>
+            </article>
+
+            <article>
+                <h2>What I Am Practicing</h2>
+                <p>
+                    I have done some front end work before but I lowkey suck at it so hope I did a good job with this. 
+                </p>
+            </article>
+        </section>
+
+        <section class="table-section">
+            <h2>Project Progress</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th>Folder or Page</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Portal Home</td>
+                        <td>index.html</td>
+                        <td>Complete</td>
+                    </tr>
+                    <tr>
+                        <td>White Water Rafting</td>
+                        <td>wwr/index.html</td>
+                        <td>Complete</td>   q
+                    </tr>
+                    <tr>
+                        <td>ICE Challenges</td>
+                        <td>ice.html</td>
+                        <td>Complete</td>
+                    </tr>
+                    <tr>
+                        <td>About Me</td>
+                        <td>about.html</td>
+                        <td>Complete</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="contact-section">
+            <h2>Contact Me</h2>
+            <form action="#" method="post">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="name@example.com">
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Send a quick note"></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sam Velasquez | WDD 130 Portal Page</p>
+        <p><a href="https://github.com/samthemannn/wdd130" target="_blank">GitHub</a></p>
+    </footer>
 </body>
 </html>

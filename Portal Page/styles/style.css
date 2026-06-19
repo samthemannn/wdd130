@@ -74,9 +74,45 @@ h1, h2 {
 /* --- About Box Styling --- */
 .profile-img {
     display: block;
-    margin-top: 1.5rem;
+    margin: 1.5rem auto;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     border: 3px solid #52b788;
+}
+
+/* --- Social Links Styling --- */
+.social-links-box {
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    padding: 1rem;
+    background-color: #111f17;
+    border: 2px solid #52b788;
+    border-radius: 8px;
+    color: #52b788;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: #52b788;
+    color: #111f17;
+    transform: scale(1.05);
 }
 
 /* --- Data Table Styling --- */
